@@ -33,3 +33,11 @@ Meteor.publish 'userData', ->
     return Meteor.users.find {}
   else
     return Meteor.users.find {_id: this.userId}
+
+# create a example user if no user is present
+if Meteor.users.find().count() is 0
+    options =
+      email: 'benjustusbals@gmail.com'
+      password: 'pass' # change IMMEDIATELY
+      roles:['admin', 'editor']
+    Accounts.createUser(options)
