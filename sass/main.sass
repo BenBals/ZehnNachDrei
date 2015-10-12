@@ -1,0 +1,111 @@
+@import bourbon/bourbon
+@import neat/neat
+
+@import variables
+@import mixins
+
+body
+  font-family: $sans-serif, sans-serif
+  background: #eee
+  height: 100%
+  width: 100%
+  margin: 0
+  color: #2E2E3C
+  -webkit-font-smoothing: antialiased
+
+h1, h2
+  text-align: center
+
+h1
+  font-size: 2.5em
+
+ul
+  padding: 0
+  list-style: none
+
+.transitioner > div:not(.velocity-animating)
+  position: initial !important
+
+// .transitioner
+//   height: 100vh !important
+
+div.login-buttons-dropdown-align-
+  height: initial
+
+div.accounts-dialog
+  position: fixed !important
+
+*
+  // box-sizing: border-box
+  -webkit-tap-highlight-color: transparent
+  text-rendering: optimizeLegibility
+
+// End defaults
+
+
+a.bigBorderButton
+  background: none
+  border: $border
+  color: $form-color
+  padding: 15px 40px
+  font-size: 18px
+  display: inline-block
+  +center
+  margin: 20px
+  text-decoration: none
+  &:active
+    color: white
+    background-color: $form-color
+
+.roundButton
+  position: relative
+  z-index: 1
+  height: 56px
+  width: 56px
+  flex: 0 0 56px
+  display: inline-block
+  padding: 0
+  margin: 4px
+  border: 0
+  border-radius: 100%
+  overflow: hidden
+  font-size: 34px
+  box-shadow: 0 5px 10px rgba(0,0,0,0.5)
+  background-color: $acent-color
+
+  .icon
+    color: #FFF
+    line-height: 56px
+    pointer-events: none
+    position: relative
+    top: 0%
+    left: 21%
+ 
+div.transitioner > .searchButton
+  position: absolute !important
+  top: 5px
+  left: 5px
+  color: #aaa
+  font-size: 1.5em
+  display: inline-block
+
+
+.topLeft
+  position: fixed
+  top: 10px
+  left: 10px
+
+.topRight
+  position: fixed
+  top: 10px
+  right: 10px
+
+  .icon
+    top: 4%
+    left: 25%
+
+.whiteBg
+  background-color: #FFF
+
+.dpn
+  display: none

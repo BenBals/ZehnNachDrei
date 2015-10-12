@@ -1,0 +1,79 @@
+@import variables
+@import mixins
+
+.card
+  box-sizing: border-box
+  max-width: 99.9%
+  width: 97%
+  display: inline-block
+  vertical-align: top
+  // width: 350px
+  position: relative
+  overflow: hidden
+  margin: 10px
+  background: #FFF
+  box-shadow: $material-shadow
+  color: #272727
+  border-radius: 2px
+  .title
+    line-height: 48px
+    font-size: 24px
+    font-weight: 300
+  .content
+    padding: 20px
+    font-weight: 300
+    border-radius: 0 0 2px 2px
+  p
+    margin: 0
+  .action
+    border-top: 1px solid rgba(160, 160, 160, 0.2)
+    padding: 20px
+  a
+    color: $acent-color
+    margin-right: 20px
+    -webkit-transition: color 0.3s ease
+    transition: color 0.3s ease
+    text-transform: uppercase
+    text-decoration: none
+  .image
+    position: relative
+    width: 100%
+    img
+      border-radius: 2px 2px 0 0
+      position: relative
+      left: 0
+      right: 0
+      top: 0
+      bottom: 0
+      width: 100%
+    .title
+      position: absolute
+      bottom: 0
+      left: 0
+      padding: 20px
+      color: #FFF
+
+.cardLi
+  display: inline-block
+  width: 49%
+
+.smallCard
+  background-color: #FFF
+  display: inline-block
+  padding: 10px 20px
+  margin: 10px
+  width: 50%
+  box-shadow: $material-shadow
+  +center
+  
+  a
+    color: $text-color
+    text-decoration: none
+
+  .rightIcons
+    display: inline-block
+    position: relative
+    left: 90%
+    background-color: #FFF
+    padding: 0px 0px 10px
+    box-sizing: border-box

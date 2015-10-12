@@ -1,0 +1,90 @@
+<template name="Editor">
+  {{> loginButtons}}
+
+  {{#if isEditorOrAdmin}}
+
+    <a href="" class="roundButton //backButton topRight topRight" id="newArticle">
+      <div class="icon">
+        <i class="fa fa-plus"></i>
+      </div>
+    </a>
+
+    <h1>Artikelübersicht</h1>
+
+    <ul>
+      {{#each articles}}
+        <li>
+          <div class="smallCard">
+            <div class="rightIcons">
+              <a href="edit/{{_id}}">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a href="" class="remove" data-id="{{_id}}">
+                <i class="fa fa-trash-o" data-id="{{_id}}"></i>
+              </a>
+            </div>
+            <a href="edit/{{_id}}">Titel: {{title}}</a>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+
+  {{else}}
+    <p>Du musst dich mit einem authorisierten Account anmelden</p>
+  {{/if}}
+</template>
+
+<template name="Edit">
+<div>
+  <a href="/editor" class="roundButton //backButton topLeft">
+    <div class="icon">
+      <i class="fa fa-list"></i>
+    </div>
+  </a>
+
+  <h1>Artikel Bearbeiten</h1>
+  <form class="awesome-form">
+    <div class="input-group">
+      <input type="text" required id="title" value="{{title}}">
+      <label>Titel</label>
+    </div>
+    
+    <br>
+
+    <div class="input-group">
+      <input type="text" required id="description" value="{{description}}">
+      <label>Beschreibung</label>
+    </div>
+
+    <br>
+
+    <div class="input-group">
+      <input type="text" required id="imgSource" value="{{imgSource}}">
+      <label>Bildquelle</label>
+    </div>
+  
+    <br>
+
+    <div class="input-group">
+      <input type="date" required id="publishDate" value="{{blub publishDate}}" class="has-value">
+      <label>Veröffenlichungsdatum</label>
+    </div>
+  
+    <br>
+
+    <h2>Text</h2>
+
+    <div class="input-group input-group-textarea">
+      <textarea id="text" cols="30" rows="10">{{text}}</textarea>
+    </div>
+
+    <br>
+
+    <a href="" class="bigBorderButton save">Save</a>
+    <br>
+    <a href="" class="bigBorderButton remove">Artikel Löschen</a>
+  </form>
+</div>
+</template>
+
+
