@@ -1,11 +1,11 @@
-@import bourbon/bourbon
-@import neat/neat
+// BUG @import bourbon/bourbon
+// BUG @import neat/neat
 
-@import variables
-@import mixins
+// BUG @import variables
+// BUG @import mixins
 
 body
-  font-family: $sans-serif, sans-serif
+  font-family: Montserrat, sans-serif // BUG $sans-serif, sans-serif
   background: #eee
   height: 100%
   width: 100%
@@ -45,17 +45,20 @@ div.accounts-dialog
 
 a.bigBorderButton
   background: none
-  border: $border
-  color: $form-color
+  border: solid 2px #21a1e1 // BUG $border
+  color: #21a1e1
   padding: 15px 40px
   font-size: 18px
   display: inline-block
-  +center
+  // BUG +center
+  position: relative
+  left: 50%
+  transform: translate(-50%)
   margin: 20px
   text-decoration: none
   &:active
     color: white
-    background-color: $form-color
+    background-color: #21a1e1
 
 .roundButton
   position: relative
@@ -71,7 +74,7 @@ a.bigBorderButton
   overflow: hidden
   font-size: 34px
   box-shadow: 0 5px 10px rgba(0,0,0,0.5)
-  background-color: $acent-color
+  background-color: #ffab40 // BUG $acent-color
 
   .icon
     color: #FFF

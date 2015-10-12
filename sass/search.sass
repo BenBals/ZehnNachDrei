@@ -1,11 +1,14 @@
-@import variables
-@import mixins
+// BUG @import variables
+// BUG @import mixins
 
 #searchBox
   font-size: 2em
   border: none
   outline: none
   background-color: #eee
-  +center
+  // BUG +center
+  position: relative
+  left: 50%
+  transform: translate(-50%)
   text-align: center
   margin-top: 20px

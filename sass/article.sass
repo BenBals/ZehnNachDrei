@@ -1,12 +1,15 @@
-@import variables
-@import mixins
+// BUG @import "variables";
+// BUG @import "mixins";
 
 .article
   .text
     padding: 10px
-    font-family: $serif
+    font-family: "Arvo" // BUG $serif
     width: 75%
-    +center
+    // BUG +center
+    position: relative
+    left: 50%
+    transform: translate(-50%)
     padding-bottom: 40px
     font-size: 1.2em
 

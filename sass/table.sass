@@ -1,11 +1,14 @@
-@import variables
-@import mixins
+// BUG @import variables
+// BUG @import mixins
 
 .materialTable
   width: 75%
   background-color: #FFF
-  box-shadow: $material-shadow
-  +center
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) // BUG $material-shadow
+  // BUG +center
+  position: relative
+  left: 50%
+  transform: translate(-50%)
 
   thead
     border-bottom: 1px solid rgba(0, 0, 0, 0.8)

@@ -1,12 +1,12 @@
-@import bourbon/bourbon
-@import mixins
-@import variables
+// BUG @import "bourbon/bourbon"
+// BUG @import "mixins"
+// BUG @import "variables"
 
 .awesome-form
   input
     background: none
     border: none
-    border-bottom: $border
+    border-bottom: solid 2px #21a1e1 // BUG $border
     padding: 15px 40px
     font-size: 18px
     display: inline-block
@@ -20,7 +20,10 @@
     display: inline-block
     margin-right: 20px
     position: relative
-    +center
+    // BUG +center
+    position: relative
+    left: 0
+    transform: translate(-50%)
     margin: 20px 0px
     width: 50%
 
@@ -28,8 +31,10 @@
       padding: 15px 0px
 
     label
-      +position(absolute, 50% null null 0px)
-      +transform(translateY(-50%))
+      position: absolute // BUG 
+      top: 50%  // BUG 
+      bottom: 0px // BUG 
+      transform: translateY(-50%) // BUG
       font:
         size: 18px
         style: italic
@@ -42,7 +47,10 @@
       top: -10px
       font-size: 12px
       color: #aaa
-      +transition
+      // BUG +transition
+      -webkit-transition: all 0.15s ease-out 0s
+      -moz-transition: all 0.15s ease-out 0s
+      transition: all 0.15s ease-out 0s
 
     textarea
       width: 100%
@@ -50,7 +58,7 @@
       // border-bottom: $border
       font-size: 18px
       padding: 20px
-      box-shadow: $material-shadow
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) // BUG $material-shadow
 
       &:focus
         outline: none
