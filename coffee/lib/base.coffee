@@ -15,6 +15,7 @@ root.blankArticle = {
   imgSource: ""
   description: ""
   publishDate: Date.now()
+  category: "Test"
 }
 
 root.parseUnixTimeToString = (n) ->
@@ -28,7 +29,9 @@ root.parseUnixTimeToString = (n) ->
 # utils
 root.utils = {
   # generating 'or lists' for the search
-  generateSearchFindObj: (str) ->
+  generateSearchFindObj: (obj) ->
+    str = obj.str
+    category = obj.category
     filteredList = _.filter str.split(' '), (el) -> el != ""
     orList = _.map filteredList, (n) ->
       {
@@ -37,10 +40,17 @@ root.utils = {
 
     if _.isEmpty orList
       return {}
-    else 
-      return {
-        $or: orList
-      }
+    else
+      if category and category != "all"
+        return {
+          $or: orList
+          category: category
+        }
+      else
+        return {
+          $or: orList
+        }
+      
   # generate the search regex
   generateSearchRegex: (str) ->
     new RegExp str, 'i'
@@ -58,3 +68,8 @@ root.utils = {
   removeFromLocalStorage: (id) ->
     localStorage.removeItem id
 }
+
+root.categories = [
+  "Test",
+  "Test2"
+]

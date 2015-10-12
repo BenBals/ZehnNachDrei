@@ -11,6 +11,7 @@ Router.route '/', ->
           root.utils.search Session.get('searchQuery')
         query: ->
           Session.get('searchQuery')
+        categories: root.categories
       }
   }
 
@@ -35,8 +36,10 @@ Router.route 'edit/:_id', ->
   # redirecting the user to the editor/login page when they are not authorised
   if Roles.userIsInRole Meteor.user(), ['admin', 'editor']
     this.render 'Edit', {
-      data: ->
-        Articles.findOne({_id: this.params._id})
+      data: {
+        article: Articles.findOne({_id: this.params._id})
+        categories: root.categories
+      }
     }
   else
     this.redirect('editor')
