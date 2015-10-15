@@ -51,7 +51,7 @@ root.utils = {
           $or: orList
         }
       
-  # generate the search regex
+  # generate the search RegExp§                                                         
   generateSearchRegex: (str) ->
     new RegExp str, 'i'
 
