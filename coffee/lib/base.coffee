@@ -75,6 +75,14 @@ root.utils = {
 }
 
 root.categories = [
-  "Test",
-  "Test2"
+  "Schulintern",
+  "Wissenswertes",
+  "Erfolge",
+  "Partyticker",
+  "Lifestyle",
+  "Kultur",
+  "Kreativzeug",
+  "Umfragen",
+  "Orientierungsstufe",
+  "Zukunft"
 ]
