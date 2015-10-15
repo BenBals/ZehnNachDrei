@@ -39,7 +39,12 @@ root.utils = {
       }
 
     if _.isEmpty orList
-      return {}
+      if category and category != "all"
+        return {
+          category: category
+        }
+      else
+        return {}
     else
       if category and category != "all"
         return {

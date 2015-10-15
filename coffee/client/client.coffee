@@ -15,3 +15,9 @@ root.processToHtml = (raw) ->
     raw = marked.parse raw
     raw.split('<script>').join('').split('</script>').join('')
   else raw
+
+# starting the search thing
+Session.set 'searchQuery', {
+  str: "",
+  category: "all"
+}

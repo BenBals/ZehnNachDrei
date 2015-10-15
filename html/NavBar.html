@@ -6,6 +6,9 @@
         <ul>
           <li>
             <b>
+              {{#if currentPathIs "article"}}
+                <a href="/" class="btnFlat">Zurück</a>
+              {{/if}}
               <a href="/" class="btnFlat">ZehnNachDrei</a>
             </b>
           </li>
@@ -14,27 +17,30 @@
 
       <div class="right">
         <ul>
-          <li>
-            <a href="/" class="btnFlat">Home</a>
-            <a class="btnFlat searchButton">Suchen</a>
-            <!-- <i class="fa fa-search searchButton iconBtnSmall"></i> -->
-          </li>
+          {{#if currentPathIs ""}}
+            <li>
+              <a class="btnFlat searchButton" href="#">Suchen</a>
+              <select id="category" class="menu-dropdown navSelect">
+                <option value="all">Kategorien</option>
+                {{#each categories}}
+                  {{#if isSelected this}}
+                    <option value="{{this}}" selected>{{this}}</option>
+                  {{else}}
+                    <option value="{{this}}">{{this}}</option>
+                  {{/if}}
+                {{/each}}
+              </select>
+              <!-- <i class="fa fa-search searchButton iconBtnSmall"></i> -->
+            </li>
+          {{/if}}
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="search dpn">
+  {{#if currentPathIs ""}}
+    <div class="search dpn">
       <input type="text" id="searchBox" value="{{query.str}}" placeholder="Suchen">
-      <select id="category" class="custom-dropdown">
-        <option value="all">Alle</option>
-        {{#each categories}}
-          {{#if isSelected this}}
-            <option value="{{this}}" selected>{{this}}</option>
-          {{else}}
-            <option value="{{this}}">{{this}}</option>
-          {{/if}}
-        {{/each}}
-      </select>
     </div>
+  {{/if}}
 </template>

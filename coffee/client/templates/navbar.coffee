@@ -4,6 +4,18 @@ Template.NavBar.helpers {
       category == Session.get('searchQuery').category
     else
       false
+  categories: root.categories
+  query: ->
+          Session.get('searchQuery')
+  currentPathIs: (path) ->
+    url = Router.current().originalUrl
+    splited = url.split('/')
+
+    if splited.length > 3
+      return splited[3] == path # 4th element
+    else
+      return splited[1] == path # 2nd element
+
 }
 
 Template.NavBar.events

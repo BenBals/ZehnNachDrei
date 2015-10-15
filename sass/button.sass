@@ -13,11 +13,14 @@ a.btn
   display: inline-block
   box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.4)
 
-  &:hover
-    cursor: pointer
-
   &:active
     box-shadow: 2px 3px 10px 0 rgba(0, 0, 0, 0.7)
+
+  &:visited
+    color: white
+
+.no-touch a.btn:hover
+  cursor: pointer
 
 a.btnFlat
   text-decoration: none
@@ -25,15 +28,19 @@ a.btnFlat
   border-radius: 2px
   transition: all 0.2s ease-in-out
   font-weight: 400
-
-  &:hover
-    background-color: rgba(0, 0, 0, 0.2)
+  color: white
 
   &:active
     background-color: rgba(0, 0, 0, 0.35)  
 
   &:hover, &:active
     cursor: pointer
+
+  &:visited
+    color: white
+
+.no-touch a.btnFlat:hover
+  background-color: rgba(0, 0, 0, 0.2)
 
 
 i.iconBtnSmall

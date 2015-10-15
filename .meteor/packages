@@ -38,3 +38,5 @@ velocity:html-reporter
 reactive-var
 reactive-dict
 fourseven:scss
+fastclick
+mrt:modernizr-meteor
