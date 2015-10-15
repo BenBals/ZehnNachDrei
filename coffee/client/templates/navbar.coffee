@@ -4,6 +4,9 @@ Template.NavBar.helpers {
       category == Session.get('searchQuery').category
     else
       false
+  categories: root.categories
+  query: ->
+          Session.get('searchQuery')
 }
 
 Template.NavBar.events

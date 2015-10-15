@@ -38,8 +38,14 @@ root.utils = {
         title: root.utils.generateSearchRegex n
       }
 
+    console.log orList
     if _.isEmpty orList
-      return {}
+      if category and category != "all"
+        return {
+          category: category
+        }
+      else
+        return {}
     else
       if category and category != "all"
         return {
