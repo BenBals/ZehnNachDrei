@@ -19,7 +19,7 @@
         <ul>
           {{#if currentPathIs ""}}
             <li>
-              <a class="btnFlat searchButton">Suchen</a>
+              <a class="btnFlat searchButton" href="#">Suchen</a>
               <select id="category" class="menu-dropdown navSelect">
                 <option value="all">Kategorien</option>
                 {{#each categories}}
@@ -38,7 +38,9 @@
     </div>
   </nav>
 
-  <div class="search dpn">
+  {{#if currentPathIs ""}}
+    <div class="search dpn">
       <input type="text" id="searchBox" value="{{query.str}}" placeholder="Suchen">
     </div>
+  {{/if}}
 </template>
