@@ -8,8 +8,14 @@ Template.NavBar.helpers {
   query: ->
           Session.get('searchQuery')
   currentPathIs: (path) ->
-    console.log 'checkIf current path is ' + path
-    return path == Router.current().route.path().split('/')[0]
+    url = Router.current().originalUrl
+    splited = url.split('/')
+
+    if splited.length > 3
+      return splited[3] == path # 4th element
+    else
+      return splited[1] == path # 2nd element
+
 }
 
 Template.NavBar.events
