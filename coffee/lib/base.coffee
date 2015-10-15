@@ -38,7 +38,6 @@ root.utils = {
         title: root.utils.generateSearchRegex n
       }
 
-    console.log orList
     if _.isEmpty orList
       if category and category != "all"
         return {

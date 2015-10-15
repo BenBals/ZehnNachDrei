@@ -7,6 +7,9 @@ Template.NavBar.helpers {
   categories: root.categories
   query: ->
           Session.get('searchQuery')
+  currentPathIs: (path) ->
+    console.log 'checkIf current path is ' + path
+    return path == Router.current().route.path().split('/')[0]
 }
 
 Template.NavBar.events
