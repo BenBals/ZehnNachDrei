@@ -8,9 +8,6 @@ Template.Article.events {
   'click .backButton': ->
     # go to the last page
     history.back()
-
-  'scroll': ->
-    alert 'scrolled'
 }
 
 Template.Article.onCreated ->

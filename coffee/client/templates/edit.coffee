@@ -1,11 +1,6 @@
 Template.Edit.helpers {
-  blub: (n) ->
-    date = new Date(n+3600)
-    toTwoDigits = (n) ->
-      if n < 10
-        '0' + String(n)
-      else String(n)
-    return date.getUTCFullYear() + "-" + toTwoDigits(date.getUTCMonth() + 1) + "-" + date.getUTCDate()
+  blub: utils.timestampToDateString
+  # return whether a given category is currently the set category
   isSelected: (category) ->
     Template.instance().data.article.category == category
 }
@@ -16,7 +11,7 @@ Template.Edit.events {
     console.log('save')
     # check for date
     if !$('#publishDate')[0].validity.valid
-      $('#publishDate').val parseUnixTimeToString(Date.parse(parseUnixTimeToString(Date.now())))
+      $('#publishDate').val utils.timestampToDateString(Date.now())
 
     # getting all the data from the dom and creating a obj for mongo
     obj = {
@@ -25,7 +20,7 @@ Template.Edit.events {
         description: $('#description').val(),
         imgSource: $('#imgSource').val(),
         text: $('#text').val(),
-        publishDate: Date.parse($('#publishDate').val())
+        publishDate: utils.timestampToSameDateAtZehnNachDrei Date.parse($('#publishDate').val())
         category: $('#category').val()
       }
     }
@@ -57,6 +52,7 @@ Template.Edit.events {
       # removing the saved state from local storage
       root.utils.removeFromLocalStorage 'text_' + this._id
 
+  # putting every change into localStorge everytime a key is realeaseds
   'keyup #text': (e) ->
     newVal = $(e.target).val()
     oldVal = this.article.text

@@ -18,26 +18,21 @@ root.blankArticle = {
   category: "Test"
 }
 
-root.parseUnixTimeToString = (n) ->
-  date = new Date(n+3600)
-  toTwoDigits = (n) ->
-    if n < 10
-      '0' + String(n)
-    else String(n)
-  return date.getUTCFullYear() + "-" + toTwoDigits(date.getUTCMonth() + 1) + "-" + date.getUTCDate()
-
 # utils
 root.utils = {
   # generating 'or lists' for the search
   generateSearchFindObj: (obj) ->
+    # extract the string and the category
     str = obj.str
     category = obj.category
+    # filter empty elemetns for the split list
     filteredList = _.filter str.split(' '), (el) -> el != ""
+    # use generateSerarchRegex to make the orList
     orList = _.map filteredList, (n) ->
       {
         title: root.utils.generateSearchRegex n
       }
-
+    # check all cases for existing or empty or List and existing or no category
     if _.isEmpty orList
       if category and category != "all"
         return {
@@ -72,8 +67,29 @@ root.utils = {
     localStorage[id] = JSON.stringify obj
   removeFromLocalStorage: (id) ->
     localStorage.removeItem id
+
+  # time conversion
+  timestampToDateString: (n) ->
+    date = new Date(n)
+    toTwoDigits = (n) ->
+      if n < 10
+        '0' + String(n)
+      else String(n)
+
+    return date.getUTCFullYear() + "-" + toTwoDigits(date.getMonth() + 1) + "-" + date.getDate()
+
+  # converting a unix timestamp to a js timestamp
+  unixTimeToTimestamp: (n) ->
+    return n * 1000
+
+  # set the time on a timestamp to 15:10:00
+  timestampToSameDateAtZehnNachDrei: (n) ->
+    date = new Date(n)
+    return date.setHours(15,10,0)
+
 }
 
+# array of all the categories
 root.categories = [
   "Schulintern",
   "Wissenswertes",
