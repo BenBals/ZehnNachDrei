@@ -1,0 +1,46 @@
+<template name="NavBar">
+  <nav class="navbar">
+    <div class="ul-wrapper">
+
+      <div class="left">
+        <ul>
+          <li>
+            <b>
+              {{#if currentPathIs "article"}}
+                <a href="/" class="btnFlat">Zurück</a>
+              {{/if}}
+              <a href="/" class="btnFlat">ZehnNachDrei</a>
+            </b>
+          </li>
+        </ul>
+      </div>
+
+      <div class="right">
+        <ul>
+          {{#if currentPathIs ""}}
+            <li>
+              <a class="btnFlat searchButton" href="#">Suchen</a>
+              <select id="category" class="menu-dropdown navSelect">
+                <option value="all">Kategorien</option>
+                {{#each categories}}
+                  {{#if isSelected this}}
+                    <option value="{{this}}" selected>{{this}}</option>
+                  {{else}}
+                    <option value="{{this}}">{{this}}</option>
+                  {{/if}}
+                {{/each}}
+              </select>
+              <!-- <i class="fa fa-search searchButton iconBtnSmall"></i> -->
+            </li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {{#if currentPathIs ""}}
+    <div class="search dpn">
+      <input type="text" id="searchBox" value="{{query.str}}" placeholder="Suchen">
+    </div>
+  {{/if}}
+</template>

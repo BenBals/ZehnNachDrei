@@ -1,0 +1,44 @@
+nav.navbar
+  //material shadow
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26)
+  background-color: #2196F3 // BUG $primary-color
+  position: fixed
+  top: 0
+  left: 0
+  display: block
+  width: 100%
+  z-index: 1
+
+  ul
+    padding-left: 10px
+
+    li
+      display: inline
+      color: white
+      
+      a:visited
+        color: white
+
+.right
+  position: fixed
+  top: 0
+  right: 10px
+
+  li
+    margin-right: 10px
+
+.ul-wrapper
+  display: table
+
+.navSelect
+  color: white
+  background-color: #2196F3 // BUG $primary-color
+  border: none
+  font-family: Montserrat // BUG $sans-serif
+  font-size: 1em
+  -webkit-appearance: none
+  outline: none
+
+  &:hover
+    // background-color: rgba(0, 0, 0, 0.2)
+    pointer: cursor

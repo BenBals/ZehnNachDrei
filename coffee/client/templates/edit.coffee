@@ -1,19 +1,17 @@
 Template.Edit.helpers {
-  blub: (n) ->
-    date = new Date(n+3600)
-    toTwoDigits = (n) ->
-      if n < 10
-        '0' + String(n)
-      else String(n)
-    return date.getUTCFullYear() + "-" + toTwoDigits(date.getUTCMonth() + 1) + "-" + date.getUTCDate()
+  blub: utils.timestampToDateString
+  # return whether a given category is currently the set category
+  isSelected: (category) ->
+    Template.instance().data.article.category == category
 }
 
 Template.Edit.events {
   # making the save happen when the button is clicked
   'click .save': ->
+    console.log('save')
     # check for date
     if !$('#publishDate')[0].validity.valid
-      $('#publishDate').val parseUnixTimeToString(Date.parse(parseUnixTimeToString(Date.now())))
+      $('#publishDate').val utils.timestampToDateString(Date.now())
 
     # getting all the data from the dom and creating a obj for mongo
     obj = {
@@ -22,7 +20,8 @@ Template.Edit.events {
         description: $('#description').val(),
         imgSource: $('#imgSource').val(),
         text: $('#text').val(),
-        publishDate: Date.parse($('#publishDate').val())
+        publishDate: utils.timestampToSameDateAtZehnNachDrei Date.parse($('#publishDate').val())
+        category: $('#category').val()
       }
     }
 
@@ -32,17 +31,17 @@ Template.Edit.events {
       return
 
     # if everything is right push the data to the db
-    Meteor.call 'updateArticle', this._id, obj
+    Meteor.call 'updateArticle', this.article._id, obj
 
     # removing the saved state from local storage
-    root.utils.removeFromLocalStorage 'text_' + this._id
+    root.utils.removeFromLocalStorage 'text_' + this.article._id
 
   # making the remove happen when the button is clicked
   'click .remove': ->
     # making a popup and asking the user if they really want this
     if window.confirm 'Willst du den Artikel wirklich löschen?'
       # if so tell the db to remove the article
-      Meteor.call 'removeArticle', this._id, (err, res) ->
+      Meteor.call 'removeArticle', this.article._id, (err, res) ->
         # check if the is a error and if there is notify the user
         if err
           console.log err.reason
@@ -53,19 +52,20 @@ Template.Edit.events {
       # removing the saved state from local storage
       root.utils.removeFromLocalStorage 'text_' + this._id
 
+  # putting every change into localStorge everytime a key is realeaseds
   'keyup #text': (e) ->
     newVal = $(e.target).val()
-    oldVal = this.text
+    oldVal = this.article.text
     if oldVal != newVal
-      root.utils.saveLocalStorage 'text_' + this._id, newVal
+      root.utils.saveLocalStorage 'text_' + this.article._id, newVal
     else
-      root.utils.removeFromLocalStorage 'text_' + this._id
+      root.utils.removeFromLocalStorage 'text_' + this.article._id
 
   'focus #text': ->
   # asking to recover stuff if there is stuff to recover
-    if !Session.get 'notFirstTyping_' + this._id
-      Session.set 'notFirstTyping_' + this._id, true
-      savedText = root.utils.loadLocalStorage 'text_' + this._id
+    if !Session.get 'notFirstTyping_' + this.article._id
+      Session.set 'notFirstTyping_' + this.article._id, true
+      savedText = root.utils.loadLocalStorage 'text_' + this.article._id
       if savedText
         if window.confirm 'Du hast ungespeicherte Vortschritte vom letzten Mal. Willst du sie laden.'
           $('#text').val(savedText)

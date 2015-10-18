@@ -1,0 +1,52 @@
+a.btn
+  color: white
+  padding: 7px 10px
+  margin: 5px 5px 5px 5px 
+  font-size: 15px
+  font-family: 'Roboto', Sans-Serif
+  transition: all 0.3s ease-in-out
+  background: #2196F3 // BUG $primary-color
+  text-decoration: none
+  text-transform: uppercase
+  border-radius: 2px
+  font-weight: 400
+  display: inline-block
+  box-shadow: 2px 3px 5px 0 rgba(0, 0, 0, 0.4)
+
+  &:active
+    box-shadow: 2px 3px 10px 0 rgba(0, 0, 0, 0.7)
+
+  &:visited
+    color: white
+
+.no-touch a.btn:hover
+  cursor: pointer
+
+a.btnFlat
+  text-decoration: none
+  padding: 7px 10px
+  border-radius: 2px
+  transition: all 0.2s ease-in-out
+  font-weight: 400
+  color: white
+
+  &:active
+    background-color: rgba(0, 0, 0, 0.35)  
+
+  &:hover, &:active
+    cursor: pointer
+
+  &:visited
+    color: white
+
+.no-touch a.btnFlat:hover
+  background-color: rgba(0, 0, 0, 0.2)
+
+
+i.iconBtnSmall
+  width: 15px
+  &::before
+    padding: 7px 10px
+    border-radius: 2px
+  &:hover > i.iconBtnSmall::before
+    background-color: rgba(0, 0, 0, 0.2)

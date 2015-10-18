@@ -1,11 +1,21 @@
 <template name="Home">
-
-  <div class="title">
-    <h1>ZehnNachDrei</h1>
-    <input type="text" id="searchBox" value="{{query}}" placeholder="Suchen" class="dpn">
-  </div>
+  <!-- <article class="title">
+    <div class="search dpn">
+      <input type="text" id="searchBox" value="{{query.str}}" placeholder="Suchen">
+      <select id="category" class="custom-dropdown">
+        <option value="all">Alle</option>
+        {{#each categories}}
+          {{#if isSelected this}}
+            <option value="{{this}}" selected>{{this}}</option>
+          {{else}}
+            <option value="{{this}}">{{this}}</option>
+          {{/if}}
+        {{/each}}
+      </select>
+    </div>
+  </article> -->
 	
-  <i class="fa fa-search searchButton"></i>
+  <!-- <i class="fa fa-search searchButton"></i> -->
 
   <ul class="cardUl">
       {{#each matchingArticles}}
