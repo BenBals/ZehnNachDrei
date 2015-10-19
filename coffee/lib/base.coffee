@@ -97,7 +97,6 @@ root.categories = [
   "Partyticker",
   "Lifestyle",
   "Kultur",
-  "Kreativzeug",
   "Umfragen",
   "Orientierungsstufe",
   "Zukunft"
