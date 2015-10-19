@@ -41,3 +41,5 @@ if Meteor.users.find().count() is 0
       password: 'pass' # change IMMEDIATELY
       roles:['admin', 'editor']
     Accounts.createUser(options)
+
+  Roles.setUserRoles Meteor.users.findOne()._id, ['admin', 'editor']
