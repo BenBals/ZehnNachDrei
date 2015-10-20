@@ -33,3 +33,7 @@ App.launchScreens({
   'ipad_landscape': 'resources/splash/iPad-Landscape.png',
   'ipad_landscape_2x': 'resources/splash/iPad-Landscape@2x.png'
 });
+
+App.setPreference('StatusBarOverlaysWebView', 'false');
+App.setPreference('StatusBarBackgroundColor', '#087DDA');
+App.setPreference('StatusBarStyle', 'lightcontent');
