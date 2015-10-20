@@ -1,8 +1,8 @@
 App.accessRule('*')
 
 App.info({
-  name: 'ZehnNachDrei'
-  description: 'Die App der Schülerzeitung des CJD Rostock.'
+  name: 'ZehnNachDrei',
+  description: 'Die App der Schülerzeitung des CJD Rostock.',
   version: '0.1.2'
 })
 
