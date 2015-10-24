@@ -18,38 +18,6 @@ root.blankArticle = {
   category: "Test"
 }
 
-# run the given command
-root.runCommand = (str) ->
-  # remove start and end character
-  withOutSlashAndDot = _.initial(_.drop(str)).join ''
-  # split
-  splited = withOutSlashAndDot.split ' '
-  # extract the command and the arguments
-  command = splited[0]
-  args = _.drop splited
-
-  # get the function from the array
-  f = root.commands[command]
-
-  # if f exits then run it with the given args
-  if f
-    f.apply root, args
-
-    # clear the search 
-    $('#searchBox').val ''
-    Session.set 'searchQuery', {
-      str: '',
-      category: Session.get('searchQuery').category
-    }
-
-# the list of possible commands
-root.commands = {
-  'editor': ->
-    Router.go('editor')
-  'shout': (str) ->
-    alert str.toUpperCase()
-}
-
 # utils
 root.utils = {
   # generating 'or lists' for the search
