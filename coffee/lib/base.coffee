@@ -35,6 +35,13 @@ root.runCommand = (str) ->
   if f
     f.apply root, args
 
+    # clear the search 
+    $('#searchBox').val ''
+    Session.set 'searchQuery', {
+      str: '',
+      category: Session.get('searchQuery').category
+    }
+
 # the list of possible commands
 root.commands = {
   'editor': ->
