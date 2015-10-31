@@ -34,3 +34,6 @@ root.commands = {
   'mail': ->
     window.location.href = "http://mail.zehnnachdrei.de"
 }
+
+
+# Hallo mein liebster Ben ich liebe dich so unglaublich doll das kannst du fast gar nicht glauben und ich dich erst meine liebste Fenja. Ich liebe dich!
