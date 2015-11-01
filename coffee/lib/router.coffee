@@ -44,6 +44,12 @@ Router.route 'edit/:_id', ->
   else
     this.redirect('editor')
 
+
+Router.route 'logs', {
+  subscriptions: -> Meteor.subscribe 'logs'
+  action: -> this.render 'Logs'
+
+}
 # mangage users route
 Router.route 'manageUsers', ->
   this.render 'ManageUsers'

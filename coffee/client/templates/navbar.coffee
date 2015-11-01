@@ -29,9 +29,12 @@ Template.NavBar.events
 
   # updating the search
   'keyup #searchBox': (e) ->
-
     # get the query string
     query = $(e.target).val()
+
+    # if dot then run command
+    if e.which == 190
+      root.runCommand query
 
     # update the query on the session
     Session.set 'searchQuery', {

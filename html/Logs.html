@@ -1,0 +1,32 @@
+<template name="Logs">
+  <article>
+    {{> loginButtons}}
+    <h1>Logs</h1>
+
+
+    {{#if currentUserIsAdmin}}
+      <table class="materialTable logsTable">
+        <thead>
+          <tr>
+            <th>email</th>
+            <th>action</th>
+            <th>before</th>
+            <th>after</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each logs}}
+          <tr>
+            <td>{{email}}</td>
+            <td>{{action}}</td>
+            <td>{{before}}</td>
+            <td>{{after}}</td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <p>Du musst dich mit einem authorisierten Account anmelden</p>
+    {{/if}}
+  </article>
+</template>

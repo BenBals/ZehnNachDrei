@@ -4,6 +4,9 @@ Meteor.methods {
   updateArticle: (id, obj) ->
     # security check
     if Roles.userIsInRole Meteor.user(), ['admin', 'editor']
+      console.log 'updateArticle'
+      # logging the update
+      Meteor.call 'logThisShit', 'change article', Articles.findOne(id), obj
       Articles.update(id, obj)
     else
       Meteor.call('notAuthorisedError')
@@ -12,6 +15,8 @@ Meteor.methods {
     # staff only
     if Roles.userIsInRole Meteor.user(), ['admin', 'editor']
         id = Articles.insert(blankArticle)
+        # logging the creation
+        Meteor.call 'logThisShit', 'create article', '-', id
         return id
     else
       Meteor.call('notAuthorisedError')
@@ -19,6 +24,8 @@ Meteor.methods {
   removeArticle: (id) ->
     # vip
     if Roles.userIsInRole Meteor.user(), ['admin', 'editor']
+      # logging the deletion
+      Meteor.call 'logThisShit', 'delete article', Articles.findOne('id'), '-'
       id = Articles.remove(id)
       return id
     else
@@ -44,4 +51,15 @@ Meteor.methods {
   # convinient error method
   notAuthorisedError : ->
     throw new Meteor.Error("not-authorized");
+
+  # add a new entry to the logs
+  logThisShit: (action, before, after) ->
+    Logs.insert {
+        'email': Meteor.user().emails[0].address
+        'userId': Meteor.userId()
+        'action': action
+        'before': JSON.stringify before
+        'after': JSON.stringify after
+        'time': Date.now()
+      }
 }
