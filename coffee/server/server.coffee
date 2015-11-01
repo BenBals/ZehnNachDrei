@@ -30,7 +30,11 @@ Meteor.publish 'articles', ->
 # publish the logs to the admins only
 Meteor.publish 'logs', ->
   if Roles.userIsInRole this.userId, ['admin']
-    return Logs.find()
+    return Logs.find {}, {
+      sort: {
+        time: -1
+      }
+    }
 
 # publish all userData to the admins and their own to all others
 Meteor.publish 'userData', ->
