@@ -27,6 +27,11 @@ Meteor.publish 'articles', ->
       }
     }
 
+# publish the logs to the admins only
+Meteor.publish 'logs', ->
+  if Roles.userIsInRole this.userId, ['admin']
+    return Logs.find()
+
 # publish all userData to the admins and their own to all others
 Meteor.publish 'userData', ->
   if Roles.userIsInRole this.userId, ['admin']

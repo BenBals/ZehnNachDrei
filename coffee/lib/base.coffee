@@ -4,6 +4,8 @@ root.root = root
 
 # the collection that stores all the articles
 root.Articles = new (Mongo.Collection)('articles')
+# the collection that stores all the logs
+root.Logs = new (Mongo.Collection)('logs')
 
 # easier way to access lodash
 _ = lodash
