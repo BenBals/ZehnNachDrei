@@ -25,7 +25,7 @@ Meteor.methods {
     # vip
     if Roles.userIsInRole Meteor.user(), ['admin', 'editor']
       # logging the deletion
-      Meteor.call 'logThisShit', 'delete article', Articles.findOne('id'), '-'
+      Meteor.call 'logThisShit', 'delete article', Articles.findOne(id), '-'
       id = Articles.remove(id)
       return id
     else
