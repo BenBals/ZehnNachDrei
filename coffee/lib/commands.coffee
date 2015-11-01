@@ -26,13 +26,16 @@ root.runCommand = (str) ->
 root.commands = {
   # open the editor
   'editor': ->
-    Router.go('editor')
+    Router.go 'editor'
   # alert the first arg in uppercase
   'shout': (str) ->
     alert str.toUpperCase()
   # go the mail log in
   'mail': ->
     window.location.href = "http://mail.zehnnachdrei.de"
+  # go to the logs
+  'logs': ->
+    Router.go 'logs'
 }
 
 
