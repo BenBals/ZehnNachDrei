@@ -22,6 +22,7 @@ Template.Edit.events {
         text: $('#text').val(),
         publishDate: utils.timestampToSameDateAtZehnNachDrei Date.parse($('#publishDate').val())
         category: $('#category').val()
+        author: $('#author').val()
       }
     }
 

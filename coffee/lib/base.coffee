@@ -80,6 +80,11 @@ root.utils = {
 
     return date.getUTCFullYear() + "-" + toTwoDigits(date.getMonth() + 1) + "-" + date.getDate()
 
+  # timestamp to german format for the article page
+  timestampToGermanDate: (n) ->
+    date = new Date(n)
+    return date.getDate() + '. ' + utils.germanMonths[date.getMonth()] + ' ' + date.getUTCFullYear()
+
   # converting a unix timestamp to a js timestamp
   unixTimeToTimestamp: (n) ->
     return n * 1000
@@ -88,6 +93,9 @@ root.utils = {
   timestampToSameDateAtZehnNachDrei: (n) ->
     date = new Date(n)
     return date.setHours(15,10,0)
+
+  # names of the months in German
+  germanMonths: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
 
 }
 
