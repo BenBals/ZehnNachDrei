@@ -13,3 +13,7 @@ Template.Home.events
   'click .backButton': ->
     # go to the last page
     history.back()
+
+  'click .cardLi': ->
+    # go to the article
+    Router.go('/article/' + this._id)
