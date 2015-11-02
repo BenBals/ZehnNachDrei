@@ -5,6 +5,12 @@
       <h1>{{title}}</h1>
       <div class="text markdown-inside">
         {{{processToHtml text}}}
+
+        {{#if author}}
+          <span class="articleSpecs">Von {{author}}</span> <br>
+        {{else}}
+        {{/if}}
+        <span class="articleSpecs">Veröffentlicht am {{timestampToGermanDate publishDate}}</span>
       </div>
     </article>
   </div>
