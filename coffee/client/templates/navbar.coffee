@@ -48,9 +48,6 @@ Template.NavBar.events
 
   # updating the query when a new category is selected
   'change #category': (e) ->
-    console.log 'select this shit'
-    console.log e
-
     category = $(e.target).val()
 
     Session.set 'searchQuery', {

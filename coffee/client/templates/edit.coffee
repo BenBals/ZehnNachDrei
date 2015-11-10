@@ -8,7 +8,6 @@ Template.Edit.helpers {
 Template.Edit.events {
   # making the save happen when the button is clicked
   'click .save': ->
-    console.log('save')
     # check for date
     if !$('#publishDate')[0].validity.valid
       $('#publishDate').val utils.timestampToDateString(Date.now())
@@ -26,14 +25,12 @@ Template.Edit.events {
       }
     }
 
+    # see if there is poll data and set or unset it accordingly
     if $('#pollData').val() != ''
-      console.log 'there is poll data'
       obj.$set.pollData = $('#pollData').val()
     else
       obj.$unset = {}
       obj.$unset.pollData = ''
-
-    console.log obj
 
     # checking if all fields have content
     if obj.$set.title == "" or obj.$set.description == "" or obj.$set.imgSource == "" or obj.$set.text == ""
@@ -80,6 +77,7 @@ Template.Edit.events {
         if window.confirm 'Du hast ungespeicherte Vortschritte vom letzten Mal. Willst du sie laden.'
           $('#text').val(savedText)
 
+  # toggle the poll settings on click of the header
   'click #pollDataH': ->
     $('#pollData').toggle()
 
