@@ -17,3 +17,8 @@ Template.Article.events {
 Template.Article.onCreated ->
   # scroll to the top on the new article
   $(document).scrollTop(0)
+
+Template.Article.onRendered ->
+  data = this.data
+  if data.pollData
+    root.utils.renderPoll(data.pollData) 

@@ -26,6 +26,15 @@ Template.Edit.events {
       }
     }
 
+    if $('#pollData').val() != ''
+      console.log 'there is poll data'
+      obj.$set.pollData = $('#pollData').val()
+    else
+      obj.$unset = {}
+      obj.$unset.pollData = ''
+
+    console.log obj
+
     # checking if all fields have content
     if obj.$set.title == "" or obj.$set.description == "" or obj.$set.imgSource == "" or obj.$set.text == ""
       alert "Du musst alle Felder ausfüllen!"
@@ -70,5 +79,8 @@ Template.Edit.events {
       if savedText
         if window.confirm 'Du hast ungespeicherte Vortschritte vom letzten Mal. Willst du sie laden.'
           $('#text').val(savedText)
+
+  'click #pollDataH': ->
+    $('#pollData').toggle()
 
 }
