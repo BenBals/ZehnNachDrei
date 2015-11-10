@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="2148px" height="913px" viewBox="0 0 2148 913" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>PartyTicker_svg</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#EB3349" offset="0%"></stop>
+            <stop stop-color="#F45C43" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="PartyTicker" sketch:type="MSArtboardGroup">
+            <rect id="Rectangle-6" fill="url(#linearGradient-1)" sketch:type="MSShapeGroup" x="0" y="0" width="2148" height="913"></rect>
+            <g id="zeiger" sketch:type="MSLayerGroup" transform="translate(1462.000000, 207.000000)">
+                <circle id="Oval-2" stroke="#FFFFFF" stroke-width="7.8313253" sketch:type="MSShapeGroup" cx="250" cy="250" r="250"></circle>
+                <circle id="middle" fill="#FFFFFF" sketch:type="MSShapeGroup" cx="250" cy="250" r="15"></circle>
+                <rect id="minutes" fill="#FFFFFF" sketch:type="MSShapeGroup" transform="translate(354.500000, 182.500000) rotate(60.000000) translate(-354.500000, -182.500000) " x="350" y="80" width="9" height="205"></rect>
+                <rect id="hours" fill="#FFFFFF" sketch:type="MSShapeGroup" transform="translate(346.500000, 261.500000) rotate(95.000000) translate(-346.500000, -261.500000) " x="342" y="186" width="9" height="151"></rect>
+            </g>
+            <text id="PARTY" sketch:type="MSTextLayer" font-family="Helvetica Neue" font-size="400" font-style="italic" font-weight="473" fill="#FFFFFF">
+                <tspan x="104" y="597">PARTY</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
