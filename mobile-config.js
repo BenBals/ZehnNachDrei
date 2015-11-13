@@ -7,20 +7,20 @@ App.info({
   author: 'ZehnNachDrei',
   email: 'zehnnachdrei@cjd-rostock.mv.lo-net2.de',
   website: 'http://zehnnachdrei.de',
-  version: '0.1.12'
+  version: '0.1.16'
 });
 
 App.icons({
-  'iphone': 'resources/icon/Icon-60@2x@0,5x.png',
-  'iphone_2x': 'resources/icon/Icon-60@2x.png',
-  'iphone_3x': 'resources/icon/Icon-60@3x.png',
-  'ipad': 'resources/icon/Icon-76.png',
-  'ipad_2x': 'resources/icon/Icon-76@2x.png',
+  'iphone': 'resources/icon/iOS_icon_iPhone.png',
+  'iphone_2x': 'resources/icon/iOS_icon_iPhone_2x.png',
+  'iphone_3x': 'resources/icon/iOS_icon_iPhone_3x.png',
+  'ipad': 'resources/icon/iOS_icon_iPad.png',
+  'ipad_2x': 'resources/icon/iOS_icon_iPad_2x.png',
 
-  'android_ldpi': 'resources/icon/android_ldpi.png',
-  'android_mdpi': 'resources/icon/android_mdpi.png',
-  'android_hdpi': 'resources/icon/android_hdpi.png',
-  'android_xhdpi': 'resources/icon/android_xhdpi.png'
+  'android_ldpi': 'resources/icon/android_icon_ldpi.png',
+  'android_mdpi': 'resources/icon/android_icon_mdpi.png',
+  'android_hdpi': 'resources/icon/android_icon_hdpi.png',
+  'android_xhdpi': 'resources/icon/android_icon_xhdpi.png'
 });
 
 
