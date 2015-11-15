@@ -1,0 +1,10 @@
+<template name="Poll">
+  <form class="pollForm">
+    <p>{{question}}</p>
+    <fieldset>
+      {{#each options}}
+        <input type="radio" id="{{this}}" value="{{this}}" name="poll"><label for="{{this}}"> {{this}}</label> <br>
+      {{/each}}
+    </fieldset>
+  </form>
+</template>

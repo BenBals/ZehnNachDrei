@@ -4,7 +4,6 @@ Meteor.methods {
   updateArticle: (id, obj) ->
     # security check
     if Roles.userIsInRole Meteor.user(), ['admin', 'editor']
-      console.log 'updateArticle'
       # logging the update
       Meteor.call 'logThisShit', 'change article', Articles.findOne(id), obj
       Articles.update(id, obj)
