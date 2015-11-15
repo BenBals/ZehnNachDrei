@@ -7,7 +7,7 @@ App.info({
   author: 'ZehnNachDrei',
   email: 'zehnnachdrei@cjd-rostock.mv.lo-net2.de',
   website: 'http://zehnnachdrei.de',
-  version: '0.1.16'
+  version: '0.1.18'
 });
 
 App.icons({
