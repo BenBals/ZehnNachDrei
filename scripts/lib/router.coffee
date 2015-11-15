@@ -53,3 +53,6 @@ Router.route 'logs', {
 # mangage users route
 Router.route 'manageUsers', ->
   this.render 'ManageUsers'
+
+Router.route 'impressum', ->
+  this.render 'Impressum'
