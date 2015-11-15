@@ -40,3 +40,4 @@ reactive-dict
 fourseven:scss
 fastclick
 mrt:modernizr-meteor
+meteortypescript:compiler
