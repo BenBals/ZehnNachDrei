@@ -35,6 +35,7 @@
 </template>
 
 <template name="Edit">
+{{#if isEditorOrAdmin}}
 <div>
   <a href="/editor" class="roundButton //backButton topLeft">
     <div class="icon">
@@ -109,6 +110,9 @@
     <a href="" class="bigBorderButton remove">Artikel Löschen</a>
   </form>
 </div>
+{{else}}
+  <p>Du musst dich mit einem authorisierten Account anmelden</p>
+{{/if}}
 </template>
 
 
