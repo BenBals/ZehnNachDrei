@@ -44,7 +44,13 @@ Meteor.publish 'userData', ->
     return Meteor.users.find {_id: this.userId}
 
 Meteor.publish 'polls', (id) ->
-  return Polls.find {_id: id}
+  transform = (doc) ->
+    doc.votes = _.map doc.votes, (ele) ->
+      return ele.length
+
+  cursor = Polls.find({articleId: id}, {transform: transform})
+  console.log cursor
+  return cursor
 
 # create a example user if no user is present
 if Meteor.users.find().count() is 0
