@@ -43,6 +43,9 @@ Meteor.publish 'userData', ->
   else
     return Meteor.users.find {_id: this.userId}
 
+Meteor.publish 'polls', (id) ->
+  return Polls.find {_id: id}
+
 # create a example user if no user is present
 if Meteor.users.find().count() is 0
     options =

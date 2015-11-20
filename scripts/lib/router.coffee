@@ -33,16 +33,12 @@ Router.route 'editor', ->
 
 # go to the edit page for the given article
 Router.route 'edit/:_id', ->
-  # redirecting the user to the editor/login page when they are not authorised
-  if Roles.userIsInRole Meteor.user(), ['admin', 'editor']
-    this.render 'Edit', {
-      data: {
-        article: Articles.findOne({_id: this.params._id})
-        categories: root.categories
-      }
+  this.render 'Edit', {
+    data: {
+      article: Articles.findOne({_id: this.params._id})
+      categories: root.categories
     }
-  else
-    this.redirect('editor')
+  }
 
 
 Router.route 'logs', {

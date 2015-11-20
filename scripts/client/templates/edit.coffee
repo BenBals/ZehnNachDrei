@@ -81,6 +81,6 @@ Template.Edit.events {
 
   # toggle the poll settings on click of the header
   'click #pollDataH': ->
-    $('#pollData').toggle()
+    $('#pollData, .poll-warning').toggle()
 
 }
