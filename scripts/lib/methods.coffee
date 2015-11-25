@@ -87,3 +87,5 @@ Meteor.methods {
         'time': Date.now()
       }
 }
+
+# fehler meldung, kein internet
