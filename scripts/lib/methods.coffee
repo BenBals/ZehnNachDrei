@@ -7,6 +7,31 @@ Meteor.methods {
       # logging the update
       Meteor.call 'logThisShit', 'change article', Articles.findOne(id), obj
       Articles.update(id, obj)
+
+      console.log obj
+
+      if obj['$set'].pollData
+        update = {
+          $set: {
+            articleId: id,
+            data: JSON.parse obj['$set'].pollData
+          }
+        }
+
+        if Polls.findOne({articleId: id})
+          Polls.update Polls.findOne(articleId: id)._id, update
+        else
+          update['$set'].votes = _.map update['$set'].data.options, ->
+            return []
+          Polls.insert update.$set
+
+      if obj.$unset
+        if obj.$unset.pollData == ''
+          console.log 'remove poll'
+          old = Polls.findOne(articleId: id)
+          if old
+            Meteor.call 'logThisShit', 'remove poll', Polls.findOne(articleId: id), '-'
+          Polls.remove Polls.findOne(articleId: id)._id
     else
       Meteor.call('notAuthorisedError')
   # creating a new article from a blank preset
@@ -62,3 +87,5 @@ Meteor.methods {
         'time': Date.now()
       }
 }
+
+# fehler meldung, kein internet

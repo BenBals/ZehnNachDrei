@@ -35,6 +35,7 @@
 </template>
 
 <template name="Edit">
+{{#if isEditorOrAdmin}}
 <div>
   <a href="/editor" class="roundButton //backButton topLeft">
     <div class="icon">
@@ -100,6 +101,7 @@
 
     <div class="input-group input-group-pollData">
       <textarea class='dpn' id="pollData" cols="30" rows="10">{{article.pollData}}</textarea>
+      <p class="dpn poll-warning">Wenn du die Umfrageneingabe bei einem Artikel mit bestehender Umfrage leer lässt und dann speichert werden alle Stimmen gelöscht. Wenn du nur einiges änderst bleiben sie.</p>
     </div>
 
     <br>
@@ -109,6 +111,9 @@
     <a href="" class="bigBorderButton remove">Artikel Löschen</a>
   </form>
 </div>
+{{else}}
+  <p>Du musst dich mit einem authorisierten Account anmelden</p>
+{{/if}}
 </template>
 
 

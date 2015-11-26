@@ -6,6 +6,8 @@ root.root = root
 root.Articles = new (Mongo.Collection)('articles')
 # the collection that stores all the logs
 root.Logs = new (Mongo.Collection)('logs')
+# the poll collection
+root.Polls = new (Mongo.Collection)('Polls')
 
 # easier way to access lodash
 _ = lodash

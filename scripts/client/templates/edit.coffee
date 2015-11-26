@@ -3,6 +3,8 @@ Template.Edit.helpers {
   # return whether a given category is currently the set category
   isSelected: (category) ->
     Template.instance().data.article.category == category
+  isEditorOrAdmin: ->
+    Roles.userIsInRole Meteor.user(), ['admin', 'editor']
 }
 
 Template.Edit.events {
@@ -79,6 +81,6 @@ Template.Edit.events {
 
   # toggle the poll settings on click of the header
   'click #pollDataH': ->
-    $('#pollData').toggle()
+    $('#pollData, .poll-warning').toggle()
 
 }

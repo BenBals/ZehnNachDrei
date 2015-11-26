@@ -3,6 +3,7 @@ Template.Article.helpers {
   processToHtml: (raw) ->
     root.processToHtml raw
   timestampToGermanDate: utils.timestampToGermanDate
+  parse: JSON.parse
 }
 
 Template.ArticleCard.helpers processToHtml: (raw) ->
@@ -19,8 +20,9 @@ Template.Article.onCreated ->
   $(document).scrollTop(0)
 
 Template.Article.onRendered ->
-  # get the data
-  data = this.data
-  # check for poll and render it with the data if it exits
-  if data.pollData
-    root.utils.renderPoll(data.pollData) 
+  # # get the data
+  # data = this.data
+  # console.log this
+  # # check for poll and render it with the data if it exits
+  # if data.pollData
+  #   root.utils.renderPoll(data.pollData)
