@@ -21,3 +21,9 @@ Session.set 'searchQuery', {
   str: "",
   category: "all"
 }
+
+$ ->
+  console.log 'doing smartbanner'
+  setTimeout ->
+    $.smartbanner()
+  ,200
