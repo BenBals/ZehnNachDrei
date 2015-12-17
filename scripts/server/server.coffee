@@ -3,7 +3,7 @@
 # publish the articles
 Meteor.publish 'articles', ->
   # all articles for admins or editors
-  if Roles.userIsInRole this.userId, ['admin', 'editor'] or Meteor.user().emails[0].address is 'steffen.kaestner@cjd.de'
+  if Roles.userIsInRole this.userId, ['admin', 'editor', 'spectator'] or Meteor.user().emails[0].address is 'steffen.kaestner@cjd.de'
     Articles.find {},
     {
       sort: {
