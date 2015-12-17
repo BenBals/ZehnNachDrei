@@ -63,8 +63,9 @@ Meteor.methods {
       for id, settings of obj
         # parse settings into a role readable format
         rs = []
-        if settings.admin then rs.push('admin')
-        if settings.editor then rs.push('editor')
+        if settings.admin then rs.push 'admin'
+        if settings.editor then rs.push 'editor'
+        if settings.spectator then rs.push 'spectator'
 
         # set the role
         Roles.setUserRoles id, rs
