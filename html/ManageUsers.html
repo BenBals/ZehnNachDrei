@@ -17,6 +17,9 @@
         <tr data-id="{{_id}}" class="userTr">
           <td>{{emails.[0].address}}</td>
           <td>
+            <input type="checkbox" checked="{{isSpectator _id}}" class="isSpectator">
+          </td>
+          <td>
             <input type="checkbox" checked="{{isEditor _id}}" class="isEditor">
           </td>
           <td>

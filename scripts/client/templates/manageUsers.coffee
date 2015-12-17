@@ -8,6 +8,8 @@ Template.ManageUsers.helpers {
   # get an id form the template and tell it if the user is an editor
   isEditor: (id) ->
     Roles.userIsInRole id, ['editor']
+  isSpectator: (id) ->
+    Roles.userIsInRole id, ['spectator']
   # get an id form the template and tell it if the user is an admin
   isAdmin: (id) ->
     Roles.userIsInRole id, ['admin']
@@ -21,6 +23,7 @@ Template.ManageUsers.events {
       id = $(this).data('id')
       isAdmin = $(this).find('.isAdmin')[0].checked
       isEditor = $(this).find('.isEditor')[0].checked
+      isSpectator = $(this).find('.isSpectator')[0].checked
       # if a user is an admin they are automaticlly an editor too
       if isAdmin then isEditor = true
 
@@ -28,6 +31,7 @@ Template.ManageUsers.events {
       obj[id] = {
         admin: isAdmin
         editor: isEditor
+        spectator: isSpectator
       }
     Meteor.call "setRoles",obj
 }
