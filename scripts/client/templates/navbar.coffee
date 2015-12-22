@@ -9,12 +9,14 @@ Template.NavBar.helpers {
   categories: root.categories
   # get the query from Session
   query: ->
-          Session.get('searchQuery')
+    Session.get('searchQuery')
   # check against the current position 
   currentPathIs: (path) ->
+    # get the current url from the Router
     url = Router.current().originalUrl
-    splited = url.split('/')
 
+    # perform some crazy stuff the make it work locally, on the web and in the app (localhost, zehnnachdrei.de or meteor.local)
+    splited = url.split('/')
     if splited.length > 3
       return splited[3] == path # 4th element
     else
@@ -27,7 +29,7 @@ Template.NavBar.events
   'click .searchButton': ->
     $('.search').toggle()
 
-  # updating the search
+  # updating the search every time a button is pressed
   'keyup #searchBox': (e) ->
     # get the query string
     query = $(e.target).val()

@@ -8,6 +8,7 @@ Template.ManageUsers.helpers {
   # get an id form the template and tell it if the user is an editor
   isEditor: (id) ->
     Roles.userIsInRole id, ['editor']
+  # get an id form the template and tell it if the user is a spectator
   isSpectator: (id) ->
     Roles.userIsInRole id, ['spectator']
   # get an id form the template and tell it if the user is an admin
@@ -16,8 +17,21 @@ Template.ManageUsers.helpers {
 }
 
 Template.ManageUsers.events {
+  # doing the save on the button click
   'click .save': ->
+    # empty obj to start with
     obj = {}
+    ###
+    exampleObj = {
+      userId: {
+        isAdmin: true,
+        isEditor: true,
+        isSpectator: false
+      }
+    }
+    ###
+
+    # looping over all trs
     $('.userTr').each ->
       # getting the id and the values of the checkboxes
       id = $(this).data('id')
@@ -33,5 +47,6 @@ Template.ManageUsers.events {
         editor: isEditor
         spectator: isSpectator
       }
+    # give all the data to the server to perform the changes
     Meteor.call "setRoles",obj
 }

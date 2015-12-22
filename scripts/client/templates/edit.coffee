@@ -1,8 +1,10 @@
 Template.Edit.helpers {
+  # making a datestring (JS -> html) out of the timestap
   blub: utils.timestampToDateString
   # return whether a given category is currently the set category
   isSelected: (category) ->
     Template.instance().data.article.category == category
+  # see if the current user has the required permissons
   isEditorOrAdmin: ->
     Roles.userIsInRole Meteor.user(), ['admin', 'editor']
 }
@@ -65,18 +67,26 @@ Template.Edit.events {
   'keyup #text': (e) ->
     newVal = $(e.target).val()
     oldVal = this.article.text
+    # if it changed -> put it into localStorage
     if oldVal != newVal
+      # save as text_id
       root.utils.saveLocalStorage 'text_' + this.article._id, newVal
     else
+      # remove the one for the current article
       root.utils.removeFromLocalStorage 'text_' + this.article._id
 
-  'focus #text': ->
   # asking to recover stuff if there is stuff to recover
+  'focus #text': ->
+    # only ask once per session
     if !Session.get 'notFirstTyping_' + this.article._id
+      # save that it has been focused
       Session.set 'notFirstTyping_' + this.article._id, true
+      # get the saved text form localStorage
       savedText = root.utils.loadLocalStorage 'text_' + this.article._id
+      # if there is some saved ask to user if they want to recover it
       if savedText
-        if window.confirm 'Du hast ungespeicherte Vortschritte vom letzten Mal. Willst du sie laden.'
+        if window.confirm 'Du hast ungespeicherte Vortschritte vom letzten Mal. Willst du sie laden?'
+          # put it into the text field if they say yes
           $('#text').val(savedText)
 
   # toggle the poll settings on click of the header

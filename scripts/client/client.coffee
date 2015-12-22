@@ -23,7 +23,9 @@ Session.set 'searchQuery', {
 }
 
 $ ->
+  # do smartbanner when everything is rendered
   console.log 'doing smartbanner'
+  # wait 200ms to give everything some time
   setTimeout ->
     $.smartbanner()
   ,200

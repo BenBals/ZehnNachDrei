@@ -55,11 +55,11 @@ root.utils = {
           $or: orList
         }
       
-  # generate the search RegExp§                                                         
+  # generate the search RegExp
   generateSearchRegex: (str) ->
     new RegExp str, 'i'
 
-  # search the articles for query
+  # search the articles for query using the mongo find api
   search: (query) ->
     if query == undefined
       return Articles.find()
@@ -75,6 +75,7 @@ root.utils = {
   # time conversion
   timestampToDateString: (n) ->
     date = new Date(n)
+    # making 2 digit string out of single digit numbers (eg 9 -> '09')
     toTwoDigits = (n) ->
       if n < 10
         '0' + String(n)
