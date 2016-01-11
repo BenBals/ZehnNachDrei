@@ -9,6 +9,7 @@ Template.Editor.events {
     Meteor.call "newArticle", (err, res)->
       # check for errors
       if err
+        # if there are put them out there
         console.log err.reason
         alert err.message
       # go to the edit page for the new article
