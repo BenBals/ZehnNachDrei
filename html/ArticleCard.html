@@ -1,11 +1,17 @@
 <template name="ArticleCard">
     <li class="cardLi">
         <div class="card">
+            {{#if imgSource}}
             <div class="image">
                 <img src="{{imgSource}}"/>
                 <span class="title">{{title}}</span>
             </div>
+            {{/if}}
             <div class="content">
+                {{#if imgSource}}
+                {{else}}
+                <span class="title">{{title}}</span>
+                {{/if}}
                 <p>{{{processToHtml description}}}</p>
             </div>
             <div class="action">

@@ -37,7 +37,7 @@ Template.Edit.events {
       obj.$unset.pollData = ''
 
     # checking if all fields have content
-    if obj.$set.title == "" or obj.$set.description == "" or obj.$set.imgSource == "" or obj.$set.text == ""
+    if obj.$set.title == "" or obj.$set.description == "" or obj.$set.text == ""
       alert "Du musst alle Felder ausfüllen!"
       return
 
