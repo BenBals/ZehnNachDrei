@@ -1,6 +1,14 @@
 # getting the root so we can make global variables from coffeescript
-root = exports ? this
+console.log("This root shit is running")
+console.log(exports)
+console.log(this)
+root
+if exports is not {}
+  root = exports
+else
+  root = this
 root.root = root
+console.log(root)
 
 # the collection that stores all the articles
 root.Articles = new (Mongo.Collection)('articles')
