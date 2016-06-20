@@ -5,9 +5,9 @@ App.info({
   id: 'de.zehnnachdrei.zehnnachdrei',
   description: 'Die App der Schülerzeitung des CJD Rostock.',
   author: 'ZehnNachDrei',
-  email: 'zehnnachdrei@cjd-rostock.mv.lo-net2.de',
+  email: 'redaktion@zehnnachdrei.de',
   website: 'http://zehnnachdrei.de',
-  version: '0.1.18'
+  version: '0.1.19'
 });
 
 App.icons({
