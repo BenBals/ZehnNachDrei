@@ -41,3 +41,4 @@ fourseven:scss
 fastclick
 mrt:modernizr-meteor
 meteortypescript:compiler
+iron:middleware-stack@1.1.0
