@@ -29,13 +29,6 @@ Template.Edit.events {
       }
     }
 
-    # see if there is poll data and set or unset it accordingly
-    if $('#pollData').val() != ''
-      obj.$set.pollData = $('#pollData').val()
-    else
-      obj.$unset = {}
-      obj.$unset.pollData = ''
-
     # checking if all fields have content
     if obj.$set.title == "" or obj.$set.description == "" or obj.$set.text == ""
       alert "Du musst alle Felder ausfüllen!"
@@ -88,9 +81,5 @@ Template.Edit.events {
         if window.confirm 'Du hast ungespeicherte Vortschritte vom letzten Mal. Willst du sie laden?'
           # put it into the text field if they say yes
           $('#text').val(savedText)
-
-  # toggle the poll settings on click of the header
-  'click #pollDataH': ->
-    $('#pollData, .poll-warning').toggle()
 
 }

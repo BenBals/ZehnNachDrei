@@ -9,36 +9,6 @@ Meteor.methods {
       # pushing the update to the database
       Articles.update(id, obj)
 
-      # extract the poll data
-      if obj['$set'].pollData
-        update = {
-          $set: {
-            articleId: id,
-            data: JSON.parse obj['$set'].pollData
-          }
-        }
-
-        # update an existing poll if there is one
-        if Polls.findOne({articleId: id})
-          Polls.update Polls.findOne(articleId: id)._id, update
-        # or insert a new one with empty votes
-        else
-          update['$set'].votes = _.map update['$set'].data.options, ->
-            return []
-          Polls.insert update.$set
-
-      # remove the poll if wished
-      if obj.$unset
-        # do the removal if the pollData string is empty
-        if obj.$unset.pollData == ''
-          # get the old poll
-          old = Polls.findOne(articleId: id)
-          # if there is one
-          if old
-            # log it with all the old data
-            Meteor.call 'logThisShit', 'remove poll', Polls.findOne(articleId: id), '-'
-          # remove the poll from the database
-          Polls.remove Polls.findOne(articleId: id)._id
     else
       # if the user is unathorised throw an error
       Meteor.call('notAuthorisedError')

@@ -48,17 +48,6 @@ Meteor.publish 'userData', ->
   else
     return Meteor.users.find {_id: this.userId}
 
-Meteor.publish 'polls', (id) ->
-  # trying to remove sensible data
-  transform = (doc) ->
-    doc.votes = _.map doc.votes, (ele) ->
-      return ele.length
-
-  # returning the poll for the article to the user
-  cursor = Polls.find({articleId: id}, {transform: transform})
-  console.log cursor
-  return cursor
-
 # create a example user if no user is present
 if Meteor.users.find().count() is 0
     # settings for the new user

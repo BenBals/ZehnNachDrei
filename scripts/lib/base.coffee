@@ -13,8 +13,6 @@ console.log(root)
 root.Articles = new (Mongo.Collection)('articles')
 # the collection that stores all the logs
 root.Logs = new (Mongo.Collection)('logs')
-# the poll collection
-root.Polls = new (Mongo.Collection)('Polls')
 
 # easier way to access lodash
 _ = lodash
@@ -106,12 +104,6 @@ root.utils = {
 
   # names of the months in German
   germanMonths: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
-
-  # render the poll to the #poll div
-  renderPoll: (pollDataString) ->
-    pollData = JSON.parse pollDataString
-    Blaze.renderWithData Template.Poll, pollData, $('#poll')[0]
-
 }
 
 # array of all the categories
