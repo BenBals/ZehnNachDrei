@@ -1,12 +1,11 @@
 # getting the root so we can make global variables from coffeescript
-console.log("This root shit is running")
-console.log(exports)
-console.log(this)
 root
+
 if exports is not {}
   root = exports
 else
   root = this
+
 root.root = root
 console.log(root)
 
