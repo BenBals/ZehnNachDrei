@@ -11,13 +11,13 @@ App.info({
 });
 
 App.icons({
-  'iphone': 'resources/icon/iOS_icon_iPhone.png',
   'iphone_2x': 'resources/icon/iOS_icon_iPhone_2x.png',
   'iphone_3x': 'resources/icon/iOS_icon_iPhone_3x.png',
+
   'ipad': 'resources/icon/iOS_icon_iPad.png',
   'ipad_2x': 'resources/icon/iOS_icon_iPad_2x.png',
+  'ipad_pro': 'resources/icon/iOS_icon_iPad_pro.png',
 
-  'android_ldpi': 'resources/icon/android_icon_ldpi.png',
   'android_mdpi': 'resources/icon/android_icon_mdpi.png',
   'android_hdpi': 'resources/icon/android_icon_hdpi.png',
   'android_xhdpi': 'resources/icon/android_icon_xhdpi.png'
@@ -25,7 +25,6 @@ App.icons({
 
 
 App.launchScreens({
-  'iphone': 'resources/splash/iPhone4.png',
   'iphone_2x': 'resources/splash/iPhone4@2x.png',
   'iphone5': 'resources/splash/iPhone5.png',
   'iphone6': 'resources/splash/iPhone6.png',
@@ -37,8 +36,6 @@ App.launchScreens({
   'ipad_landscape': 'resources/splash/iPad-Landscape.png',
   'ipad_landscape_2x': 'resources/splash/iPad-Landscape@2x.png',
 
-  'android_ldpi_portrait': 'resources/splash/android_ldpi_portrait.png',
-  'android_ldpi_landscape': 'resources/splash/android_ldpi_landscape.png',
   'android_mdpi_portrait': 'resources/splash/android_mdpi_portrait.png',
   'android_mdpi_landscape': 'resources/splash/android_mdpi_landscape.png',
   'android_hdpi_portrait': 'resources/splash/android_hdpi_portrait.png',

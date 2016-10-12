@@ -7,7 +7,6 @@ else
   root = this
 
 root.root = root
-console.log(root)
 
 # the collection that stores all the articles
 root.Articles = new (Mongo.Collection)('articles')
