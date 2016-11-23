@@ -2,7 +2,7 @@
   // Server authentication info
   "servers": [
     {
-      "host": "46.101.150.208",
+      "host": "zehnnachdrei.de",
       "username": "root",
       // "password": "password"
       // or pem file (ssh based authentication)
